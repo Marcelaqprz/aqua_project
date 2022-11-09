@@ -1,3 +1,4 @@
+import 'package:aqua/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
@@ -28,6 +29,8 @@ class _MyAppState extends State<MyApp> {
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
+
+  //final _router = GoRouter(routes: [GoRoute(path: '/', builder: (context, state) => LoginScreen())]);
 
   @override
   void initState() {

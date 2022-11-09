@@ -331,10 +331,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                         ),
                         onPressed: () {
-                          Navigator.of(context).pushReplacement(
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                          );
+                          /*Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
                                 builder: (context) => RegisterScreen()),
-                          );
+                          );*/
                         },
                       ),
                     ),
