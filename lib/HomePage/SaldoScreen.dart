@@ -19,6 +19,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: scaffoldKey,
       body: SafeArea(
         child: GestureDetector(

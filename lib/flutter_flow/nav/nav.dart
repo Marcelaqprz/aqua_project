@@ -1,15 +1,17 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../../HomePage/SaldoScreen.dart';
 import '../../index.dart';
 import '../../login_screen/LoginScreen.dart';
 import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
+
+import '../../main.dart';
 
 const kTransitionInfoKey = '__transition_info__';
 
@@ -37,6 +39,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'LoginScreen',
               path: 'login_screen',
               builder: (context, params) => LoginScreen(),
+            ),
+            FFRoute(
+              name: 'RegisterScreen',
+              path: 'register_screen',
+              builder: (context, params) => RegisterScreen(),
+            ),
+            FFRoute(
+              name: 'SaldoScreen',
+              path: 'HomePage',
+              builder: (context, params) => SaldoScreen(),
+            ),
+            FFRoute(
+              name: 'ReporteScreen',
+              path: 'reporte_screen',
+              builder: (context, params) => ReporteScreen(),
+            ),
+            FFRoute(
+              name: 'AltaReporteScreen',
+              path: 'alta_reporte_screen',
+              builder: (context, params) => AltaReporteScreen(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

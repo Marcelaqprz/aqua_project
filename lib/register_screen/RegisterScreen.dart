@@ -1,9 +1,8 @@
-import 'package:aqua/index.dart';
-
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -13,38 +12,35 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController? textController1;
-  TextEditingController? textController2;
-  TextEditingController? textController3;
+  TextEditingController? _usernameController;
+  TextEditingController? _emailController;
+  TextEditingController? _contactController;
+  TextEditingController? _passwordController;
 
-  late bool passwordVisibility1;
-  TextEditingController? textController4;
-
-  late bool passwordVisibility2;
+  late bool passwordVisibility;
   bool? switchValue;
   final formKey1 = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
-  final formKey3 = GlobalKey<FormState>();
-  final formKey4 = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final formKey4 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController(text: '+52 ');
-    textController3 = TextEditingController();
-    passwordVisibility1 = false;
-    textController4 = TextEditingController();
-    passwordVisibility2 = false;
+    _usernameController = TextEditingController();
+    _emailController = TextEditingController();
+    _contactController = TextEditingController(text: '+52 ');
+    _passwordController = TextEditingController();
+    passwordVisibility = false;
   }
 
   @override
   void dispose() {
-    textController1?.dispose();
-    textController2?.dispose();
-    textController3?.dispose();
-    textController4?.dispose();
+    _usernameController?.dispose();
+    _emailController?.dispose();
+    _contactController?.dispose();
+    _passwordController?.dispose();
     super.dispose();
   }
 
@@ -68,6 +64,106 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                          child: Container(
+                            width: 270,
+                            child: Form(
+                              key: formKey2,
+                              autovalidateMode: AutovalidateMode.always,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 100, 0, 0),
+                                child: TextFormField(
+                                  controller: _usernameController,
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Nombre',
+                                    hintStyle:
+                                        FlutterFlowTheme.of(context).bodyText2,
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .lineColor,
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .lineColor,
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFFF0000),
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFFF0000),
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    prefixIcon: Icon(
+                                      Icons.person,
+                                      color: FlutterFlowTheme.of(context)
+                                          .lineColor,
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                  textAlign: TextAlign.start,
+                                  keyboardType: TextInputType.name,
+                                  validator: (val) {
+                                    if (val == null || val.isEmpty) {
+                                      return 'Field is required';
+                                    }
+
+                                    if (!RegExp(kTextValidatorUsernameRegex)
+                                        .hasMatch(val)) {
+                                      return 'Must start with a letter and can only contain letters, digits and - or _.';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
@@ -75,85 +171,78 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Form(
                         key: formKey4,
                         autovalidateMode: AutovalidateMode.always,
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
-                          child: Container(
-                            width: 270,
-                            child: TextFormField(
-                              controller: textController1,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Correo electrónico',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).lineColor,
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).lineColor,
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFFF0000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFFF0000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.alternate_email,
+                        child: Container(
+                          width: 270,
+                          child: TextFormField(
+                            controller: _emailController,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Correo electrónico',
+                              hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).lineColor,
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                              textAlign: TextAlign.start,
-                              keyboardType: TextInputType.emailAddress,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Field is required';
-                                }
-
-                                if (!RegExp(kTextValidatorEmailRegex)
-                                    .hasMatch(val)) {
-                                  return 'error';
-                                }
-                                return null;
-                              },
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              errorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFFF0000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedErrorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFFF0000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              prefixIcon: Icon(
+                                Icons.alternate_email,
+                                color: FlutterFlowTheme.of(context).lineColor,
+                              ),
                             ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                            textAlign: TextAlign.start,
+                            keyboardType: TextInputType.emailAddress,
+                            validator: (val) {
+                              if (val == null || val.isEmpty) {
+                                return 'Field is required';
+                              }
+
+                              if (!RegExp(kTextValidatorEmailRegex)
+                                  .hasMatch(val)) {
+                                return 'error';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -174,7 +263,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             key: formKey3,
                             autovalidateMode: AutovalidateMode.always,
                             child: TextFormField(
-                              controller: textController2,
+                              controller: _contactController,
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -267,12 +356,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Container(
                             width: 270,
                             child: Form(
-                              key: formKey2,
+                              key: formKey1,
                               autovalidateMode: AutovalidateMode.always,
                               child: TextFormField(
-                                controller: textController3,
+                                controller: _passwordController,
                                 autofocus: true,
-                                obscureText: !passwordVisibility1,
+                                obscureText: !passwordVisibility,
                                 decoration: InputDecoration(
                                   labelText: 'Contraseña',
                                   hintStyle:
@@ -321,113 +410,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                   suffixIcon: InkWell(
                                     onTap: () => setState(
-                                      () => passwordVisibility1 =
-                                          !passwordVisibility1,
+                                      () => passwordVisibility =
+                                          !passwordVisibility,
                                     ),
                                     focusNode: FocusNode(skipTraversal: true),
                                     child: Icon(
-                                      passwordVisibility1
-                                          ? Icons.visibility_outlined
-                                          : Icons.visibility_off_outlined,
-                                      color: Color(0xFF757575),
-                                      size: 22,
-                                    ),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                textAlign: TextAlign.start,
-                                keyboardType: TextInputType.visiblePassword,
-                                validator: (val) {
-                                  if (val == null || val.isEmpty) {
-                                    return 'Field is required';
-                                  }
-
-                                  return null;
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                          child: Container(
-                            width: 270,
-                            child: Form(
-                              key: formKey1,
-                              autovalidateMode: AutovalidateMode.always,
-                              child: TextFormField(
-                                controller: textController4,
-                                autofocus: true,
-                                obscureText: !passwordVisibility2,
-                                decoration: InputDecoration(
-                                  labelText: 'Confirmar contraseña',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(4.0),
-                                      topRight: Radius.circular(4.0),
-                                    ),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(4.0),
-                                      topRight: Radius.circular(4.0),
-                                    ),
-                                  ),
-                                  errorBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFFF0000),
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(4.0),
-                                      topRight: Radius.circular(4.0),
-                                    ),
-                                  ),
-                                  focusedErrorBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFFF0000),
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(4.0),
-                                      topRight: Radius.circular(4.0),
-                                    ),
-                                  ),
-                                  suffixIcon: InkWell(
-                                    onTap: () => setState(
-                                      () => passwordVisibility2 =
-                                          !passwordVisibility2,
-                                    ),
-                                    focusNode: FocusNode(skipTraversal: true),
-                                    child: Icon(
-                                      passwordVisibility2
+                                      passwordVisibility
                                           ? Icons.visibility_outlined
                                           : Icons.visibility_off_outlined,
                                       color: Color(0xFF757575),
@@ -585,23 +573,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
-                      child: TextButton(
-                        child: Text(
-                          'Iniciar sesión',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF009FFF),
-                                  ),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                                builder: (context) => LoginScreen()),
-                          );
-                        },
-                      ),
+                      child: SelectionArea(
+                          child: TextButton(
+                              onPressed: () => context.go('/login_screen'),
+                              child: Text(
+                                'Iniciar sesión',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF009FFF),
+                                    ),
+                              ))),
                     ),
                   ],
                 ),

@@ -20,6 +20,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: scaffoldKey,
       body: SafeArea(
         child: GestureDetector(

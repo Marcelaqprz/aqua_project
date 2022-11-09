@@ -1,3 +1,4 @@
+import 'package:aqua/flutter_flow/flutter_flow_util.dart';
 import 'package:aqua/register_screen/RegisterScreen.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -5,6 +6,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -12,23 +14,24 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController? textController1;
-  TextEditingController? textController2;
+  TextEditingController? _usernameController;
+  TextEditingController? _passwordController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
+    _usernameController = TextEditingController();
+    _passwordController = TextEditingController();
   }
 
   @override
   void dispose() {
-    textController1?.dispose();
-    textController2?.dispose();
+    _usernameController?.dispose();
+    _passwordController?.dispose();
     super.dispose();
   }
 
@@ -86,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               key: formKey1,
                               autovalidateMode: AutovalidateMode.always,
                               child: TextFormField(
-                                controller: textController1,
+                                controller: _usernameController,
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
@@ -161,54 +164,61 @@ class _LoginScreenState extends State<LoginScreen> {
                         alignment: AlignmentDirectional(0, 0),
                         child: Container(
                           width: 260,
-                          child: TextFormField(
-                            controller: textController2,
-                            autofocus: true,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              isDense: true,
-                              labelText: 'Contraseña',
-                              hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                          child: Form(
+                            key: formKey2,
+                            child: TextFormField(
+                              controller: _passwordController,
+                              autofocus: true,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                isDense: true,
+                                labelText: 'Contraseña',
+                                hintStyle:
+                                    FlutterFlowTheme.of(context).bodyText2,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).lineColor,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).lineColor,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFFF0000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFFF0000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                prefixIcon: Icon(
+                                  Icons.vpn_key_outlined,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(5),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).lineColor,
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFFF0000),
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFFF0000),
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              prefixIcon: Icon(
-                                Icons.vpn_key_outlined,
-                                color: FlutterFlowTheme.of(context).lineColor,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                              textAlign: TextAlign.start,
+                              keyboardType: TextInputType.visiblePassword,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                            textAlign: TextAlign.start,
-                            keyboardType: TextInputType.visiblePassword,
                           ),
                         ),
                       ),
@@ -229,7 +239,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: FFButtonWidget(
-                          onPressed: () {},
+                          onPressed: () {
+                          },
                           text: 'Iniciar sesión',
                           icon: Icon(
                             Icons.login,
@@ -330,12 +341,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Color(0xFF009FFF),
                                   ),
                         ),
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                                builder: (context) => RegisterScreen()),
-                          );
-                        },
+                        onPressed: () => context.go('/register_screen'),
                       ),
                     ),
                   ],
@@ -368,4 +374,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+
 }

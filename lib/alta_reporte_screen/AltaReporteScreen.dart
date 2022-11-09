@@ -15,6 +15,7 @@ class _AltaReporteScreenState extends State<AltaReporteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: scaffoldKey,
       appBar: AppBar(
         backgroundColor: Color(0xFF009FFF),

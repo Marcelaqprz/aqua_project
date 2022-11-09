@@ -24,13 +24,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   Locale? _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
-
-  //final _router = GoRouter(routes: [GoRoute(path: '/', builder: (context, state) => LoginScreen())]);
 
   @override
   void initState() {
