@@ -1,11 +1,18 @@
+import '../auth_credentials.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+  final VoidCallback shouldShowLogin;
+  final ValueChanged<SignUpCredentials> didProvideCredentials;
+
+  const RegisterScreen(
+      {Key? key,
+        required this.didProvideCredentials,
+        required this.shouldShowLogin})
+      : super(key: key);
 
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -460,9 +467,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
+                          onPressed: _signUp,
                           text: 'Registrarse',
                           icon: Icon(
                             Icons.login,
@@ -617,4 +622,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
+  void _signUp() {
+    final username = _usernameController?.text.trim();
+    final email = _emailController?.text.trim();
+    final password = _passwordController?.text.trim();
+
+    final credentials = SignUpCredentials(username: username, password: password, email: email.toString());
+    widget.didProvideCredentials(credentials);
+  }
+
 }

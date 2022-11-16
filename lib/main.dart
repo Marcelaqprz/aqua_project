@@ -41,9 +41,9 @@ class _MyAppState extends State<MyApp> {
   void setLocale(String language) =>
       setState(() => _locale = createLocale(language));
   void setThemeMode(ThemeMode mode) => setState(() {
-        _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
-      });
+    _themeMode = mode;
+    FlutterFlowTheme.saveThemeMode(mode);
+  });
 
   @override
   Widget build(BuildContext context) {

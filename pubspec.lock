@@ -308,6 +308,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   octo_image:
     dependency: transitive
     description:
@@ -420,6 +427,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  provider:
+    dependency: "direct main"
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.4"
   rfc_6901:
     dependency: transitive
     description:
@@ -663,6 +677,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  watch_connectivity:
+    dependency: "direct main"
+    description:
+      name: watch_connectivity
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
+  watch_connectivity_platform_interface:
+    dependency: transitive
+    description:
+      name: watch_connectivity_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   win32:
     dependency: transitive
     description:

@@ -1,13 +1,19 @@
 import 'package:aqua/flutter_flow/flutter_flow_util.dart';
-import 'package:aqua/register_screen/RegisterScreen.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:aqua/auth_credentials.dart';
 
 class LoginScreen extends StatefulWidget {
+  final ValueChanged<LoginCredentials> didProvideCredentials;
+  final VoidCallback shouldShowSignUp;
 
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen(
+      {Key? key,
+        required this.didProvideCredentials,
+        required this.shouldShowSignUp})
+      : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -239,8 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                          },
+                          onPressed: _login,
                           text: 'Iniciar sesión',
                           icon: Icon(
                             Icons.login,
@@ -373,6 +378,16 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+  void _login() {
+    final username = _usernameController?.text.trim();
+    final password = _passwordController?.text.trim();
+
+    print('username: $username');
+    print('password: $password');
+
+    final credentials = LoginCredentials(username: username, password: password);
+    widget.didProvideCredentials(credentials);
   }
 
 
