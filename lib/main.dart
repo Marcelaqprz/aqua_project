@@ -3,10 +3,8 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:aqua/index.dart';
 import 'package:aqua/verification_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'amplifyconfiguration.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:aqua/auth_service.dart';
 import 'package:amplify_storage_s3/amplify_storage_s3.dart';
@@ -105,9 +103,16 @@ class _MyAppState extends State<MyApp> {
     _amplify.addPlugins([AmplifyAuthCognito(), AmplifyStorageS3()]);
     try {
       await _amplify.configure(amplifyconfig);
-      print('Successfully configured Amplify 🎉');
+      print('-I- Successfully configured Amplify 🎉');
     } catch (e) {
-      print('Could not configure Amplify ☠️');
+      print('-E- Could not configure Amplify ☠');
+    }
+
+    try {
+      await _amplify.Auth.signOut();
+      print('-I- Successfully signOut 🎉');
+    } catch (e) {
+      print('-I- No need to signOut 🎉');
     }
   }
 }
