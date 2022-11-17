@@ -1,10 +1,15 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:aqua/index.dart';
+import 'package:aqua/verification_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'amplifyconfiguration.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'flutter_flow/nav/nav.dart';
+import 'package:aqua/auth_service.dart';
+import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,17 +30,17 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+  final _amplify = Amplify;
+  final _authService = AuthService();
+
   Locale? _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
-
-  late AppStateNotifier _appStateNotifier;
-  late GoRouter _router;
 
   @override
   void initState() {
     super.initState();
-    _appStateNotifier = AppStateNotifier();
-    _router = createRouter(_appStateNotifier);
+    _configureAmplify();
+    _authService.checkAuthStatus();
   }
 
   void setLocale(String language) =>
@@ -47,21 +52,62 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'aqua',
-      localizationsDelegates: [
-        FFLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      locale: _locale,
-      supportedLocales: const [Locale('en', '')],
-      theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      themeMode: _themeMode,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
+    return MaterialApp(
+      title: 'Photo Gallery App',
+      theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
+      // 2
+      home: StreamBuilder<AuthState>(
+        // 2
+          stream: _authService.authStateController.stream,
+          builder: (context, snapshot) {
+            // 3
+            if (snapshot.hasData) {
+              return Navigator(
+                pages: [
+                  // 4
+                  // Show Login Page
+                  if (snapshot.data?.authFlowStatus == AuthFlowStatus.login)
+                    MaterialPage(
+                        child: LoginScreen(
+                            didProvideCredentials:
+                            _authService.loginWithCredentials,
+                            shouldShowSignUp: _authService.showSignUp)),
+
+                  // 5
+                  // Show Sign Up Page
+                  if (snapshot.data?.authFlowStatus == AuthFlowStatus.signUp)
+                    MaterialPage(
+                        child: RegisterScreen(
+                            didProvideCredentials:
+                            _authService.signUpWithCredentials,
+                            shouldShowLogin: _authService.showLogin)),
+                  // Show Verification Code Page
+                  if (snapshot.data?.authFlowStatus ==
+                      AuthFlowStatus.verification)
+                    MaterialPage(
+                        child: VerificationPage(
+                            didProvideVerificationCode:
+                            _authService.verifyCode))
+                ],
+                onPopPage: (route, result) => route.didPop(result),
+              );
+            } else {
+              // 6
+              return Container(
+                alignment: Alignment.center,
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
     );
+  }
+  void _configureAmplify() async {
+    _amplify.addPlugins([AmplifyAuthCognito(), AmplifyStorageS3()]);
+    try {
+      await _amplify.configure(amplifyconfig);
+      print('Successfully configured Amplify 🎉');
+    } catch (e) {
+      print('Could not configure Amplify ☠️');
+    }
   }
 }
