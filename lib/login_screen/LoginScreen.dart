@@ -390,6 +390,4 @@ class _LoginScreenState extends State<LoginScreen> {
     final credentials = LoginCredentials(username: username, password: password);
     widget.didProvideCredentials(credentials);
   }
-
-
 }
