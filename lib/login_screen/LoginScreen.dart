@@ -1,4 +1,5 @@
 import 'package:aqua/flutter_flow/flutter_flow_util.dart';
+import 'package:aqua/index.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -346,7 +347,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Color(0xFF009FFF),
                                   ),
                         ),
-                        onPressed: () => context.go('/register_screen'),
+                        onPressed: widget.shouldShowSignUp,
                       ),
                     ),
                   ],

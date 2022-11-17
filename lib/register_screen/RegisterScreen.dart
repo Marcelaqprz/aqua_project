@@ -580,7 +580,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Expanded(
                       child: SelectionArea(
                           child: TextButton(
-                              onPressed: () => context.go('/login_screen'),
+                              onPressed: widget.shouldShowLogin,
                               child: Text(
                                 'Iniciar sesión',
                                 textAlign: TextAlign.center,
