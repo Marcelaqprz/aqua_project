@@ -1,9 +1,10 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
+import 'package:aqua/HomePage/SaldoScreen.dart';
 import 'package:aqua/index.dart';
 import 'package:aqua/verification_page.dart';
 import 'package:flutter/material.dart';
-import 'amplifyconfiguration.dart';
+//import 'amplifyconfiguration.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:aqua/auth_service.dart';
@@ -85,7 +86,11 @@ class _MyAppState extends State<MyApp> {
                     MaterialPage(
                         child: VerificationPage(
                             didProvideVerificationCode:
-                            _authService.verifyCode))
+                            _authService.verifyCode)),
+                  if (snapshot.data?.authFlowStatus ==
+                      AuthFlowStatus.session)
+                    MaterialPage(
+                        child: SaldoScreen(),)
                 ],
                 onPopPage: (route, result) => route.didPop(result),
               );
@@ -102,7 +107,7 @@ class _MyAppState extends State<MyApp> {
   void _configureAmplify() async {
     _amplify.addPlugins([AmplifyAuthCognito(), AmplifyStorageS3()]);
     try {
-      await _amplify.configure(amplifyconfig);
+      //await _amplify.configure(amplifyconfig);
       print('-I- Successfully configured Amplify 🎉');
     } catch (e) {
       print('-E- Could not configure Amplify ☠');

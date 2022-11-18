@@ -78,6 +78,8 @@ class AuthService {
 
   void verifyCode(String verificationCode) async {
     try {
+      final state = AuthState(authFlowStatus: AuthFlowStatus.session);
+      authStateController.add(state);
       // 2
       final result = await Amplify.Auth.confirmSignUp(
           username: _credentials.username, confirmationCode: verificationCode);
