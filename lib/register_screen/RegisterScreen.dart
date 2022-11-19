@@ -1,3 +1,5 @@
+import 'package:amplify_flutter/amplify_flutter.dart';
+
 import '../auth_credentials.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -463,7 +465,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: FFButtonWidget(
-                          onPressed: _signUp,
+                          onPressed: (){
+                            _signUp;
+                            createUser();},
                           text: 'Registrarse',
                           icon: Icon(
                             Icons.login,
@@ -625,6 +629,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     final credentials = SignUpCredentials(username: username, password: password, email: email.toString());
     widget.didProvideCredentials(credentials);
+  }
+
+  void createUser() async {
+    final newUser = User(
+        nombre: _usernameController.toString(),
+        email: _emailController.toString(),
+        contact: _contactController.toString(),
+        password: _passwordController.toString());
+    try{
+      await Amplify.DataStore.save(newUser);
+      print('Saved ${newUser.toString()}');
+    }catch(e){
+      print(e);
+    }
   }
 
 }

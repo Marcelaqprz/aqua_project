@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:developer';
+
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:aqua/index.dart';
 import 'package:aqua/recibo_screen/ReciboScreen.dart';
 import 'package:aqua/servicios_screen/ServiciosScreen.dart';
@@ -229,7 +233,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
                       children: [
                         FlutterFlowDropDown(
                           initialOption: dropDownValue ??= '156398755',
-                          options: ['156398755', '296581376'],
+                          options: readServices(),
                           onChanged: (val) =>
                               setState(() => dropDownValue = val),
                           width: 140,
@@ -667,5 +671,10 @@ class _SaldoScreenState extends State<SaldoScreen> {
         ),
       ),
     );
+  }
+
+  Future<List<Service>> readServices () async {
+    List<Service> Services = await Amplify.DataStore.query(Service.classType);
+    return Services;
   }
 }

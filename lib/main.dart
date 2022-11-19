@@ -113,11 +113,11 @@ class _MyAppState extends State<MyApp> {
       print('-E- Could not configure Amplify ☠');
     }
 
-    try {
+    /*try {
       await _amplify.Auth.signOut();
       print('-I- Successfully signOut 🎉');
     } catch (e) {
       print('-I- No need to signOut 🎉');
-    }
+    }*/
   }
 }
