@@ -216,7 +216,7 @@ class _VerificationPageState extends State<VerificationPage> {
                     Expanded(
                       child: SelectionArea(
                           child: Text(
-                            'Código enviado por email o SMS',
+                            'Código enviado por email',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',

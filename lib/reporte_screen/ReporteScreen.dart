@@ -1,3 +1,7 @@
+import 'package:aqua/HomePage/SaldoScreen.dart';
+import 'package:aqua/alta_reporte_screen/AltaReporteScreen.dart';
+import 'package:aqua/recibo_screen/ReciboScreen.dart';
+
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -41,140 +45,159 @@ class _ReporteScreenState extends State<ReporteScreen> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.account_balance,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 30,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30,
+                                  borderWidth: 1,
+                                  buttonSize: 60,
+                                  icon: Icon(
+                                    Icons.account_balance,
+                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                    size: 30,
                                   ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  SelectionArea(
-                                      child: Text(
-                                    'Saldo',
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
-                                  )),
-                                ],
-                              ),
-                            ],
-                          ),
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => SaldoScreen()));
+                                  },
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                SelectionArea(
+                                    child: Text(
+                                      'Saldo',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.fact_check,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 30,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30,
+                                  borderWidth: 1,
+                                  buttonSize: 60,
+                                  icon: Icon(
+                                    Icons.fact_check,
+                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                    size: 30,
                                   ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  SelectionArea(
-                                      child: Text(
-                                    'Recibos',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
-                                  )),
-                                ],
-                              ),
-                            ],
-                          ),
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => ReciboScreen()));
+                                  },
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                SelectionArea(
+                                    child: Text(
+                                      'Recibos',
+                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.report,
-                                      color: Color(0xFF009FFF),
-                                      size: 30,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30,
+                                  borderWidth: 1,
+                                  buttonSize: 60,
+                                  icon: Icon(
+                                    Icons.report,
+                                    color: Color(0xFF009FFF),
+                                    size: 30,
                                   ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  SelectionArea(
-                                      child: Text(
-                                    'Reportes',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF009FFF),
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  )),
-                                ],
-                              ),
-                            ],
-                          ),
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => ReporteScreen()));
+                                  },
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                SelectionArea(
+                                    child: Text(
+                                      'Reportes',
+                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF009FFF),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30,
+                                  borderWidth: 1,
+                                  buttonSize: 60,
+                                  icon: Icon(
+                                    Icons.fact_check,
+                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                    size: 30,
+                                  ),
+                                  onPressed: () {
+                                    print('IconButton pressed ...');
+                                  },
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                SelectionArea(
+                                    child: Text(
+                                      'Servicios',
+                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -446,7 +469,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
                     children: [
                       FFButtonWidget(
                         onPressed: () {
-                          print('Button pressed ...');
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => AltaReporteScreen()));
                         },
                         text: 'Agregar reporte',
                         icon: Icon(
