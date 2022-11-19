@@ -1,32 +1,27 @@
 import 'package:aqua/HomePage/SaldoScreen.dart';
-import 'package:aqua/alta_reporte_screen/AltaReporteScreen.dart';
-import 'package:aqua/recibo_screen/ReciboScreen.dart';
+import 'package:aqua/index.dart';
+import 'package:aqua/servicios_screen/ServiciosScreen.dart';
 
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../servicios_screen/ServiciosScreen.dart';
 
-class ReporteScreen extends StatefulWidget {
-  const ReporteScreen({Key? key}) : super(key: key);
+class ReciboScreen extends StatefulWidget {
+  const ReciboScreen({Key? key}) : super(key: key);
 
   @override
-  _ReporteScreenState createState() => _ReporteScreenState();
+  _ReciboScreenState createState() => _ReciboScreenState();
 }
 
-class _ReporteScreenState extends State<ReporteScreen> {
+class _ReciboScreenState extends State<ReciboScreen> {
   String? dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       key: scaffoldKey,
       body: SafeArea(
         child: GestureDetector(
@@ -101,7 +96,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
                                   buttonSize: 60,
                                   icon: Icon(
                                     Icons.fact_check,
-                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                    color: Color(0xFF009FFF),
                                     size: 30,
                                   ),
                                   onPressed: () {
@@ -118,7 +113,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
                                       'Recibos',
                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                         fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                        color: Color(0xFF009FFF),
                                       ),
                                     )),
                               ],
@@ -138,7 +133,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
                                   buttonSize: 60,
                                   icon: Icon(
                                     Icons.report,
-                                    color: Color(0xFF009FFF),
+                                    color: FlutterFlowTheme.of(context).secondaryText,
                                     size: 30,
                                   ),
                                   onPressed: () {
@@ -155,7 +150,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
                                       'Reportes',
                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                         fontFamily: 'Poppins',
-                                        color: Color(0xFF009FFF),
+                                        color: FlutterFlowTheme.of(context).secondaryText,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     )),
@@ -221,10 +216,10 @@ class _ReporteScreenState extends State<ReporteScreen> {
                       children: [
                         SelectionArea(
                             child: Text(
-                          'ID Servicio:',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context).bodyText1,
-                        )),
+                              'ID Servicio:',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context).bodyText1,
+                            )),
                       ],
                     ),
                     Column(
@@ -240,10 +235,10 @@ class _ReporteScreenState extends State<ReporteScreen> {
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
-                                fontFamily: 'Poppins',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
+                            fontFamily: 'Poppins',
+                            color:
+                            FlutterFlowTheme.of(context).secondaryText,
+                          ),
                           hintText: 'servicio',
                           fillColor: Colors.white,
                           elevation: 2,
@@ -273,41 +268,45 @@ class _ReporteScreenState extends State<ReporteScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 110, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 90, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SelectionArea(
                                   child: Text(
-                                'Folio',
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                    'Período',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 16,
                                     ),
-                              )),
+                                  )),
                             ],
                           ),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            SelectionArea(
-                                child: Text(
-                              'Estatus',
-                              textAlign: TextAlign.end,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 16,
-                                  ),
-                            )),
+                            Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 30, 0),
+                              child: SelectionArea(
+                                  child: Text(
+                                    'PDF',
+                                    textAlign: TextAlign.end,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 16,
+                                    ),
+                                  )),
+                            ),
                           ],
                         ),
                       ],
@@ -327,21 +326,21 @@ class _ReporteScreenState extends State<ReporteScreen> {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: SelectionArea(
                                   child: Text(
-                                '10256932',
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                    '10256932',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
                                     ),
-                              )),
+                                  )),
                             ),
                           ],
                         ),
@@ -352,9 +351,8 @@ class _ReporteScreenState extends State<ReporteScreen> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
-                              Icons.lock_open,
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              Icons.picture_as_pdf,
+                              color: FlutterFlowTheme.of(context).secondaryText,
                               size: 24,
                             ),
                           ],
@@ -395,21 +393,21 @@ class _ReporteScreenState extends State<ReporteScreen> {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: SelectionArea(
                                   child: Text(
-                                '18246757',
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                    '18246757',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
                                     ),
-                              )),
+                                  )),
                             ),
                           ],
                         ),
@@ -420,8 +418,8 @@ class _ReporteScreenState extends State<ReporteScreen> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
-                              Icons.close,
-                              color: FlutterFlowTheme.of(context).alternate,
+                              Icons.picture_as_pdf,
+                              color: FlutterFlowTheme.of(context).secondaryText,
                               size: 24,
                             ),
                           ],
@@ -462,40 +460,6 @@ class _ReporteScreenState extends State<ReporteScreen> {
                   indent: 50,
                   endIndent: 50,
                   color: FlutterFlowTheme.of(context).lineColor,
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FFButtonWidget(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => AltaReporteScreen()));
-                        },
-                        text: 'Agregar reporte',
-                        icon: Icon(
-                          Icons.report,
-                          size: 15,
-                        ),
-                        options: FFButtonOptions(
-                          width: 200,
-                          height: 40,
-                          color: Color(0xFF009FFF),
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                  ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
                 Container(
                   width: double.infinity,

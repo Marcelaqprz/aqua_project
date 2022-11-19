@@ -31,7 +31,7 @@ class _AltaReporteScreenState extends State<AltaReporteScreen> {
             size: 30,
           ),
           onPressed: () {
-            print('IconButton pressed ...');
+            Navigator.pop(context);
           },
         ),
         title: SelectionArea(

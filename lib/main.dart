@@ -4,7 +4,7 @@ import 'package:aqua/HomePage/SaldoScreen.dart';
 import 'package:aqua/index.dart';
 import 'package:aqua/verification_page.dart';
 import 'package:flutter/material.dart';
-//import 'amplifyconfiguration.dart';
+import 'amplifyconfiguration.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:aqua/auth_service.dart';
@@ -90,7 +90,7 @@ class _MyAppState extends State<MyApp> {
                   if (snapshot.data?.authFlowStatus ==
                       AuthFlowStatus.session)
                     MaterialPage(
-                        child: SaldoScreen(),)
+                        child: SaldoScreen())
                 ],
                 onPopPage: (route, result) => route.didPop(result),
               );
@@ -107,17 +107,17 @@ class _MyAppState extends State<MyApp> {
   void _configureAmplify() async {
     _amplify.addPlugins([AmplifyAuthCognito(), AmplifyStorageS3()]);
     try {
-      //await _amplify.configure(amplifyconfig);
+      await _amplify.configure(amplifyconfig);
       print('-I- Successfully configured Amplify 🎉');
     } catch (e) {
       print('-E- Could not configure Amplify ☠');
     }
 
-    try {
+    /*try {
       await _amplify.Auth.signOut();
       print('-I- Successfully signOut 🎉');
     } catch (e) {
       print('-I- No need to signOut 🎉');
-    }
+    }*/
   }
 }
