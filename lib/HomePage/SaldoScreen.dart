@@ -233,7 +233,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
                       children: [
                         FlutterFlowDropDown(
                           initialOption: dropDownValue ??= '156398755',
-                          options: readServices(),
+                          //options: readServices(),
                           onChanged: (val) =>
                               setState(() => dropDownValue = val),
                           width: 140,
@@ -252,7 +252,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
                           borderWidth: 0,
                           borderRadius: 0,
                           margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
-                          hidesUnderline: true,
+                          hidesUnderline: true, options: [],
                         ),
                       ],
                     ),
@@ -673,8 +673,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
     );
   }
 
-  Future<List<Service>> readServices () async {
+  void readServices () async {
     List<Service> Services = await Amplify.DataStore.query(Service.classType);
-    return Services;
   }
 }
