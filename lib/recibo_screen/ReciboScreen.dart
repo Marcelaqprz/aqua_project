@@ -1,5 +1,6 @@
 import 'package:aqua/HomePage/SaldoScreen.dart';
 import 'package:aqua/index.dart';
+import 'package:aqua/servicios_screen/ServiciosScreen.dart';
 
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -174,7 +175,7 @@ class _ReciboScreenState extends State<ReciboScreen> {
                                     size: 30,
                                   ),
                                   onPressed: () {
-                                    //Navigator.push(context, MaterialPageRoute(builder: (context) => AltaReporteScreen()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => ServiciosScreen()));
                                   },
                                 ),
                               ],

@@ -10,6 +10,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../servicios_screen/ServiciosScreen.dart';
+
 class ReporteScreen extends StatefulWidget {
   const ReporteScreen({Key? key}) : super(key: key);
 
@@ -178,7 +180,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
                                     size: 30,
                                   ),
                                   onPressed: () {
-                                    print('IconButton pressed ...');
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => ServiciosScreen()));
                                   },
                                 ),
                               ],
