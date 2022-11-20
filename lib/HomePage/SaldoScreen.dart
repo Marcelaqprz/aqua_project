@@ -29,6 +29,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
 
   @override
   void initState() {
+    _serviceModel = ServiceModel(id: "", litres: 0.00);
     super.initState();
     _getData();
   }
