@@ -231,8 +231,8 @@ class _ReporteScreenState extends State<ReporteScreen> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         FlutterFlowDropDown(
-                          initialOption: dropDownValue ??= '156398755',
-                          options: ['156398755', '296581376'],
+                          initialOption: dropDownValue ??= '168432158',
+                          options: ['168432158'],
                           onChanged: (val) =>
                               setState(() => dropDownValue = val),
                           width: 140,
@@ -244,7 +244,7 @@ class _ReporteScreenState extends State<ReporteScreen> {
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                               ),
-                          hintText: 'servicio',
+                          hintText: '168432158',
                           fillColor: Colors.white,
                           elevation: 2,
                           borderColor: Colors.transparent,
