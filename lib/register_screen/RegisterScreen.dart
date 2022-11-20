@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:aqua/models/User.dart';
 
 class RegisterScreen extends StatefulWidget {
   final VoidCallback shouldShowLogin;
@@ -12,8 +13,8 @@ class RegisterScreen extends StatefulWidget {
 
   const RegisterScreen(
       {Key? key,
-        required this.didProvideCredentials,
-        required this.shouldShowLogin})
+      required this.didProvideCredentials,
+      required this.shouldShowLogin})
       : super(key: key);
 
   @override
@@ -132,7 +133,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           ),
                                         ),
                                         focusedErrorBorder:
-                                        UnderlineInputBorder(
+                                            UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFFFF0000),
                                             width: 1,
@@ -151,9 +152,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                       textAlign: TextAlign.start,
                                       keyboardType: TextInputType.emailAddress,
                                     ),
@@ -465,9 +466,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: FFButtonWidget(
-                          onPressed: (){
-                            _signUp;
-                            createUser();},
+                          onPressed: _signUp,//() {createUser();
                           text: 'Registrarse',
                           icon: Icon(
                             Icons.login,
@@ -622,27 +621,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
+
   void _signUp() {
     final username = _usernameController?.text.trim();
     final email = _emailController?.text.trim();
     final password = _passwordController?.text.trim();
 
-    final credentials = SignUpCredentials(username: username, password: password, email: email.toString());
+    final credentials = SignUpCredentials(
+        username: username, password: password, email: email.toString());
     widget.didProvideCredentials(credentials);
   }
 
-  void createUser() async {
+  /*void createUser() async {
     final newUser = User(
-        nombre: _usernameController.toString(),
+        name: _usernameController.toString(),
         email: _emailController.toString(),
         contact: _contactController.toString(),
         password: _passwordController.toString());
-    try{
+    try {
       await Amplify.DataStore.save(newUser);
       print('Saved ${newUser.toString()}');
-    }catch(e){
+    } catch (e) {
       print(e);
     }
-  }
-
+  }*/
 }

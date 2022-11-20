@@ -673,7 +673,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
     );
   }
 
-  void readServices () async {
+  /*void readServices () async {
     List<Service> Services = await Amplify.DataStore.query(Service.classType);
-  }
+  }*/
 }
