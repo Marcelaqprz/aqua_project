@@ -654,13 +654,13 @@ class _SaldoScreenState extends State<SaldoScreen> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           CircularPercentIndicator(
-                            percent: .7,
+                            percent: ((toPercent() < 0) || toPercent() > 1  ? .5 : toPercent()),
                             radius: 60,
                             lineWidth: 24,
                             animation: true,
-                            progressColor: setColor(litersLimit),
+                            progressColor: setColor(),
                             backgroundColor: Color(0xFFF1F4F8),
-                            center: Text('70',
+                            center: Text((toPercent()*100).toStringAsFixed(2) + "%",
                               style: FlutterFlowTheme
                                   .of(context)
                                   .bodyText1
@@ -747,6 +747,12 @@ class _SaldoScreenState extends State<SaldoScreen> {
                                               ),
                                             ),
                                             content: TextField(
+                                              onChanged:(value){
+                                                litersLimit = value as double;
+                                                setState(() {
+                                                  litersLimit;
+                                                });
+                                              },
                                               controller: _litersLimit,
                                               autofocus: true,
                                               decoration: InputDecoration(hintText: "litros"),
@@ -835,16 +841,33 @@ class _SaldoScreenState extends State<SaldoScreen> {
     );
   }
 
-  Color setColor(litersLimit) {
+  Color setColor() {
     if (litersLimit <= 25) {
       return Colors.green;
-    } else if (litersLimit > 25 && litersLimit <= 50) {
+    } else if (litersLimit > calPercent(25) && litersLimit <= calPercent(50)) {
       return Colors.yellow;
-    } else if (litersLimit > 50 && litersLimit <= 75) {
+    } else if (litersLimit > calPercent(50) && litersLimit <= calPercent(75)) {
       return Colors.deepOrangeAccent;
     } else {
       return Colors.red;
     }
+  }
+
+  double calPercent (double percent){
+    return (litersLimit*percent)/100;
+  }
+
+  double toPercent() {
+    // textController.text is a string and we have to convert it to double
+    final double ? liters = double.tryParse(_litersLimit?.text ?? "0") ;
+
+    final double ? mult = (_serviceModel?.litres ?? 0)*100;
+
+    setState(() {
+      litersLimit = liters != null ? liters : 0;
+    });
+
+    return (mult!/litersLimit)/100;
   }
 
 }
