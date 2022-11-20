@@ -52,6 +52,21 @@ const amplifyconfig = ''' {
                         "Bucket": "aquaproject5689c25a3d3f4db6bd3ef0871a8110b9231855-dev",
                         "Region": "us-east-1"
                     }
+                },
+                "AppSync": {
+                    "Default": {
+                        "ApiUrl": "https://pe3zhp32xjbzxjibon27rtwyhq.appsync-api.us-east-1.amazonaws.com/graphql",
+                        "Region": "us-east-1",
+                        "AuthMode": "API_KEY",
+                        "ApiKey": "da2-ykcvjkxuizfpfbb623sbphjcju",
+                        "ClientDatabasePrefix": "aquaproject_API_KEY"
+                    },
+                    "aquaproject_AWS_IAM": {
+                        "ApiUrl": "https://pe3zhp32xjbzxjibon27rtwyhq.appsync-api.us-east-1.amazonaws.com/graphql",
+                        "Region": "us-east-1",
+                        "AuthMode": "AWS_IAM",
+                        "ClientDatabasePrefix": "aquaproject_AWS_IAM"
+                    }
                 }
             }
         }
@@ -62,6 +77,29 @@ const amplifyconfig = ''' {
                 "bucket": "aquaproject5689c25a3d3f4db6bd3ef0871a8110b9231855-dev",
                 "region": "us-east-1",
                 "defaultAccessLevel": "guest"
+            },
+            "awsDynamoDbStoragePlugin": {
+                "partitionKeyName": "id",
+                "sortKeyName": "sn",
+                "sortKeyType": "S",
+                "region": "us-east-1",
+                "arn": "arn:aws:dynamodb:us-east-1:337764483072:table/dynamoAqua-dev",
+                "streamArn": "arn:aws:dynamodb:us-east-1:337764483072:table/dynamoAqua-dev/stream/2022-11-20T01:59:38.470",
+                "partitionKeyType": "S",
+                "name": "dynamoAqua-dev"
+            }
+        }
+    },
+    "api": {
+        "plugins": {
+            "awsAPIPlugin": {
+                "aquaproject": {
+                    "endpointType": "GraphQL",
+                    "endpoint": "https://pe3zhp32xjbzxjibon27rtwyhq.appsync-api.us-east-1.amazonaws.com/graphql",
+                    "region": "us-east-1",
+                    "authorizationType": "API_KEY",
+                    "apiKey": "da2-ykcvjkxuizfpfbb623sbphjcju"
+                }
             }
         }
     }

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\JetBrains\IJ\Code\aqua_project\build\windows\CMakeFiles\b342c15a99448275817661ce7c9147f6\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{DA7DB5A7-2874-3DF6-94B8-3C21AFAA9C10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

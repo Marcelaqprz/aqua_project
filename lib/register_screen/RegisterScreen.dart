@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:aqua/models/User.dart';
 
 class RegisterScreen extends StatefulWidget {
   final VoidCallback shouldShowLogin;
@@ -467,7 +468,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: FFButtonWidget(
                           onPressed: (){
                             _signUp;
-                            createUser();},
+                            //createUser();
+                            },
                           text: 'Registrarse',
                           icon: Icon(
                             Icons.login,
@@ -633,7 +635,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void createUser() async {
     final newUser = User(
-        nombre: _usernameController.toString(),
+        name: _usernameController.toString(),
         email: _emailController.toString(),
         contact: _contactController.toString(),
         password: _passwordController.toString());

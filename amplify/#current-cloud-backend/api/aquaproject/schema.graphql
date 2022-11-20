@@ -1,0 +1,14 @@
+type Service @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String
+  total: String
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  email: String
+  contact: String
+  password: String
+}
+ 

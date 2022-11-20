@@ -1,0 +1,32 @@
+{
+  "bucketName": "aquaproject5689c25a3d3f4db6bd3ef0871a8110b9",
+  "selectedGuestPermissions": [],
+  "selectedAuthenticatedPermissions": [
+    "s3:PutObject",
+    "s3:GetObject",
+    "s3:ListBucket",
+    "s3:DeleteObject"
+  ],
+  "unauthRoleName": {
+    "Ref": "UnauthRoleName"
+  },
+  "authRoleName": {
+    "Ref": "AuthRoleName"
+  },
+  "triggerFunction": "S3Trigger2a4de5c3",
+  "s3PrivatePolicy": "Private_policy_f1a48c7a",
+  "s3ProtectedPolicy": "Protected_policy_f1a48c7a",
+  "s3PublicPolicy": "Public_policy_f1a48c7a",
+  "s3ReadPolicy": "read_policy_f1a48c7a",
+  "s3UploadsPolicy": "Uploads_policy_f1a48c7a",
+  "authPolicyName": "s3_amplify_f1a48c7a",
+  "unauthPolicyName": "s3_amplify_f1a48c7a",
+  "AuthenticatedAllowList": "ALLOW",
+  "GuestAllowList": "DISALLOW",
+  "s3PermissionsAuthenticatedPrivate": "s3:PutObject,s3:GetObject,s3:DeleteObject",
+  "s3PermissionsAuthenticatedProtected": "s3:PutObject,s3:GetObject,s3:DeleteObject",
+  "s3PermissionsAuthenticatedPublic": "s3:PutObject,s3:GetObject,s3:DeleteObject",
+  "s3PermissionsAuthenticatedUploads": "s3:PutObject",
+  "s3PermissionsGuestPublic": "DISALLOW",
+  "s3PermissionsGuestUploads": "DISALLOW"
+}

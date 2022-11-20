@@ -9,6 +9,10 @@ import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:aqua/auth_service.dart';
 import 'package:amplify_storage_s3/amplify_storage_s3.dart';
+import 'package:amplify_datastore/amplify_datastore.dart';
+import 'package:amplify_api/amplify_api.dart';
+
+import 'models/ModelProvider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -105,7 +109,10 @@ class _MyAppState extends State<MyApp> {
     );
   }
   void _configureAmplify() async {
-    _amplify.addPlugins([AmplifyAuthCognito(), AmplifyStorageS3()]);
+    _amplify.addPlugins([AmplifyAuthCognito(), AmplifyStorageS3(),
+      AmplifyDataStore(modelProvider: ModelProvider.instance), AmplifyAPI()]);
+
+
     try {
       await _amplify.configure(amplifyconfig);
       print('-I- Successfully configured Amplify 🎉');

@@ -1,0 +1,138 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-aquaproject-dev-231855-authRole",
+      "UnauthRoleArn": "arn:aws:iam::337764483072:role/amplify-aquaproject-dev-231855-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::337764483072:role/amplify-aquaproject-dev-231855-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-aquaproject-dev-231855-deployment",
+      "UnauthRoleName": "amplify-aquaproject-dev-231855-unauthRole",
+      "StackName": "amplify-aquaproject-dev-231855",
+      "StackId": "arn:aws:cloudformation:us-east-1:337764483072:stack/amplify-aquaproject-dev-231855/55c2fd30-6637-11ed-9209-1242f0f8770b",
+      "AmplifyAppId": "d3b1vfjphmgn6q"
+    }
+  },
+  "auth": {
+    "aquaproject4dae0a66": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "us-east-1_60SuHfTmV",
+        "AppClientIDWeb": "3dtqesr32f1hselu5366oifpl2",
+        "AppClientID": "69q42h7885gjt42sp2dljtpa79",
+        "IdentityPoolId": "us-east-1:b8d793da-6088-4a4f-afc8-4c3a624335dd",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:337764483072:userpool/us-east-1_60SuHfTmV",
+        "IdentityPoolName": "aquaproject4dae0a66_identitypool_4dae0a66__dev",
+        "UserPoolName": "aquaproject4dae0a66_userpool_4dae0a66"
+      },
+      "lastPushTimeStamp": "2022-11-20T02:31:54.261Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-aquaproject-dev-231855-deployment/amplify-cfn-templates/auth/aquaproject4dae0a66-cloudformation-template.json",
+        "logicalId": "authaquaproject4dae0a66"
+      },
+      "lastPushDirHash": "l6RoS/d6577oP/FkzGlOqctyaaQ="
+    }
+  },
+  "function": {
+    "S3Trigger2a4de5c3": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:337764483072:function:S3Trigger2a4de5c3-dev",
+        "Name": "S3Trigger2a4de5c3-dev",
+        "LambdaExecutionRole": "S3Trigger2a4de5c3LambdaRole2a4de5c3-dev"
+      },
+      "lastPushTimeStamp": "2022-11-20T02:31:54.263Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-aquaproject-dev-231855-deployment/amplify-cfn-templates/function/S3Trigger2a4de5c3-cloudformation-template.json",
+        "logicalId": "functionS3Trigger2a4de5c3"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-aquaproject-dev-231855-deployment",
+        "s3Key": "amplify-builds/S3Trigger2a4de5c3-717471396e7744526964-build.zip"
+      }
+    }
+  },
+  "storage": {
+    "bucket": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "S3Trigger2a4de5c3",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ]
+        }
+      ],
+      "output": {
+        "BucketName": "aquaproject5689c25a3d3f4db6bd3ef0871a8110b9231855-dev",
+        "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2022-11-20T02:31:54.878Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-aquaproject-dev-231855-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagebucket"
+      }
+    }
+  },
+  "api": {
+    "aquaproject": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "bqyiykkq4bdozpq7adc5q7myi4",
+        "GraphQLAPIEndpointOutput": "https://pe3zhp32xjbzxjibon27rtwyhq.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-ykcvjkxuizfpfbb623sbphjcju"
+      },
+      "lastPushTimeStamp": "2022-11-20T02:44:28.118Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-aquaproject-dev-231855-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiaquaproject"
+      },
+      "dependsOn": [],
+      "lastPushDirHash": "bFbFG3OwiR8pWhGWDJs4DtlGRg0="
+    }
+  }
+}
