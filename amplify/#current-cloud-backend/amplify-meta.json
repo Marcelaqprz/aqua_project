@@ -1,0 +1,101 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-aquaproject-staging-23057-authRole",
+            "UnauthRoleArn": "arn:aws:iam::337764483072:role/amplify-aquaproject-staging-23057-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::337764483072:role/amplify-aquaproject-staging-23057-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-aquaproject-staging-23057-deployment",
+            "UnauthRoleName": "amplify-aquaproject-staging-23057-unauthRole",
+            "StackName": "amplify-aquaproject-staging-23057",
+            "StackId": "arn:aws:cloudformation:us-east-1:337764483072:stack/amplify-aquaproject-staging-23057/a9163830-68ad-11ed-ae4b-0e54d7a53ba5",
+            "AmplifyAppId": "d2fd69mk12htmd"
+        }
+    },
+    "api": {
+        "aquaproject": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "apiKeyExpirationDays": 7
+                        }
+                    },
+                    "additionalAuthenticationProviders": []
+                },
+                "GraphQLAPIIdOutput": "4k6yz3kmsbeehasnnidoeuztma",
+                "GraphQLAPIEndpointOutput": "https://nmun2jzgr5g65apq6ugo5oqyoq.appsync-api.us-east-1.amazonaws.com/graphql",
+                "GraphQLAPIKeyOutput": "da2-rbmvrzbq2vbwxkw5xre5ryxw6i"
+            },
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-aquaproject-staging-23057-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+                "logicalId": "apiaquaproject"
+            },
+            "lastPushTimeStamp": "2022-11-20T08:44:37.671Z",
+            "lastPushDirHash": "ZB5anqIvS8ucgaIeYIpOISE8wkc="
+        },
+        "aquaproject-staging": {
+            "service": "AppSync",
+            "output": {
+                "authConfig": {
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY"
+                    },
+                    "additionalAuthenticationProviders": null
+                },
+                "GraphQLAPIIdOutput": "4k6yz3kmsbeehasnnidoeuztma",
+                "GraphQLAPIEndpointOutput": "https://nmun2jzgr5g65apq6ugo5oqyoq.appsync-api.us-east-1.amazonaws.com/graphql",
+                "name": "aquaproject-staging",
+                "region": "us-east-1",
+                "GraphQLAPIKeyOutput": "da2-rbmvrzbq2vbwxkw5xre5ryxw6i"
+            },
+            "lastPushTimeStamp": "2022-11-20T08:46:47.214Z"
+        }
+    },
+    "auth": {
+        "aquaprojectfa76a7f7": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false,
+            "frontendAuthConfig": {
+                "socialProviders": [],
+                "usernameAttributes": [
+                    "EMAIL"
+                ],
+                "signupAttributes": [
+                    "EMAIL"
+                ],
+                "passwordProtectionSettings": {
+                    "passwordPolicyMinLength": 8,
+                    "passwordPolicyCharacters": []
+                },
+                "mfaConfiguration": "OFF",
+                "mfaTypes": [
+                    "SMS"
+                ],
+                "verificationMechanisms": [
+                    "EMAIL"
+                ]
+            },
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-aquaproject-staging-23057-deployment/amplify-cfn-templates/auth/aquaprojectfa76a7f7-cloudformation-template.json",
+                "logicalId": "authaquaprojectfa76a7f7"
+            },
+            "lastPushTimeStamp": "2022-11-20T08:44:37.702Z",
+            "output": {
+                "UserPoolId": "us-east-1_S8BiBFEe4",
+                "AppClientIDWeb": "26d5c572fteajgf90n0uvb4cjd",
+                "AppClientID": "f3lj48a178ltoqaemfsb0g89j",
+                "IdentityPoolId": "us-east-1:0fa62323-1b0e-4f9b-b0fd-0e9ebc75d609",
+                "UserPoolArn": "arn:aws:cognito-idp:us-east-1:337764483072:userpool/us-east-1_S8BiBFEe4",
+                "IdentityPoolName": "aquaprojectfa76a7f7_identitypool_fa76a7f7__staging",
+                "UserPoolName": "aquaprojectfa76a7f7_userpool_fa76a7f7"
+            },
+            "lastPushDirHash": "FKhW3NL606usyvLv6t6FU2wp7A0="
+        }
+    }
+}
