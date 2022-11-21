@@ -118,9 +118,9 @@ class _MyAppState extends State<MyApp> {
 
     try {
       await _amplify.Auth.signOut();
-      print('-I- Successfully signOut 🎉');
+      //print('-I- Successfully signOut 🎉');
     } catch (e) {
-      print('-I- No need to signOut 🎉');
+      //print('-I- No need to signOut 🎉');
     }
   }
 }
