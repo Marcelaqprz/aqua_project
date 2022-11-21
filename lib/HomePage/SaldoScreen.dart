@@ -26,6 +26,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
   TextEditingController? _litersLimit;
   bool status = true;
   double litersLimit = 100;
+  double per = 0;
 
   String? dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -420,8 +421,7 @@ class _SaldoScreenState extends State<SaldoScreen> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           SelectionArea(
-                              child: Text(
-                                _serviceModel!.litres.toString() + ' Lt',
+                              child: Text(_serviceModel!.litres.toStringAsFixed(2) + ' Lt',
                                 style: FlutterFlowTheme
                                     .of(context)
                                     .bodyText1
@@ -654,13 +654,13 @@ class _SaldoScreenState extends State<SaldoScreen> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           CircularPercentIndicator(
-                            percent: ((toPercent() < 0) || toPercent() > 1  ? .5 : toPercent()),
+                            percent: definePercent(),
                             radius: 60,
                             lineWidth: 24,
                             animation: true,
                             progressColor: setColor(),
                             backgroundColor: Color(0xFFF1F4F8),
-                            center: Text((toPercent()*100).toStringAsFixed(2) + "%",
+                            center: Text( centerText(),
                               style: FlutterFlowTheme
                                   .of(context)
                                   .bodyText1
@@ -842,19 +842,16 @@ class _SaldoScreenState extends State<SaldoScreen> {
   }
 
   Color setColor() {
-    if (litersLimit <= 25) {
+    per = toPercent();
+    if (per <= .25) {
       return Colors.green;
-    } else if (litersLimit > calPercent(25) && litersLimit <= calPercent(50)) {
+    } else if (per > .25 && per <= .50) {
       return Colors.yellow;
-    } else if (litersLimit > calPercent(50) && litersLimit <= calPercent(75)) {
+    } else if (per > .50 && per <= .75) {
       return Colors.deepOrangeAccent;
     } else {
       return Colors.red;
     }
-  }
-
-  double calPercent (double percent){
-    return (litersLimit*percent)/100;
   }
 
   double toPercent() {
@@ -868,6 +865,18 @@ class _SaldoScreenState extends State<SaldoScreen> {
     });
 
     return (mult!/litersLimit)/100;
+  }
+
+  double definePercent(){
+    per = toPercent();
+    if(per < 0) return 0;
+    else if (per > 1) return 1;
+    else return per;
+  }
+
+  String centerText (){
+    if ( (toPercent()*100).toStringAsFixed(2) == "Infinity" ) return "" ;
+    else return (toPercent()*100).toStringAsFixed(2)+ "%";
   }
 
 }
